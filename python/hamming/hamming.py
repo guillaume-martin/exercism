@@ -1,14 +1,8 @@
 def distance(strand_a, strand_b):
-    try:
-        str_lght = len(strand_a)
-        assert len(strand_b) == str_lght
+    try:        
+        assert len(strand_a) == len(strand_b)
         
-        distance = 0
-        for idx in range(str_lght):
-            if strand_a[idx] != strand_b[idx]:
-                distance += 1
-        
-        return distance
+        return len([b for a, b in zip(strand_a, strand_b) if b != a])
 
     except AssertionError:
         raise ValueError('The two strands are of different length.')
