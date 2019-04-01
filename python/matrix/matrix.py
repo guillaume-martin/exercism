@@ -7,4 +7,6 @@ class Matrix(object):
         return row
 
     def column(self, index):
-        pass
+        column = list(map(int, [row.split(' ')[index -1] for row in self.matrix_string.split('\n')]))
+        return column
+
