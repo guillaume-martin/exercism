@@ -7,6 +7,7 @@ class Matrix(object):
         return row
 
     def column(self, index):
-        column = list(map(int, [row.split(' ')[index -1] for row in self.matrix_string.split('\n')]))
+        column = [int(row.split(' ')[index - 1]) for row in self.matrix_string.split('\n')]
         return column
+
 
