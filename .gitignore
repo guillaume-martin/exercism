@@ -1,4 +1,7 @@
 __pycache__
 .cache
 .exercism
+
+# IDE filtes
 .vscode
+.idea
