@@ -12,22 +12,16 @@ def response(hey_bob):
         Bob's response
     """
 
-    # Remove meaningless trailing spaces
-    hey_bob = hey_bob.rstrip()  
-    # create a clean string that removes all non alphanumeric characters.
-    clean_string = ''.join([char for char in list(hey_bob) if char.isalnum()])
+    hey_bob = hey_bob.rstrip()
 
-    # is it a question?
-    if len(hey_bob) > 0 and hey_bob[-1] == '?':
-        response = "Calm down, I know what I'm doing!" if hey_bob.isupper() else 'Sure.'
-    # if not, keep only alphanumeric characters and see what we have left
-    elif len(clean_string) > 0:
-        if clean_string.isupper():
-            response = 'Whoa, chill out!'
+    if hey_bob.endswith('?'):
+        if hey_bob.isupper():
+            return "Calm down, I know what I'm doing!"
         else:
-            response = 'Whatever.'
+            return "Sure."
+    elif hey_bob.isupper():
+        return "Whoa, chill out!"
+    elif hey_bob.strip() == '':
+        return "Fine. Be that way!"
     else:
-        # The clean_string is empty which means we didn't say anything 
-        response = 'Fine. Be that way!'
-
-    return response
+        return "Whatever."
