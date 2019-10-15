@@ -6,11 +6,6 @@ char_scores = {'a':1, 'b':3, 'c':3, 'd':2, 'e':1, 'f':4, 'g':2, 'h':4, 'i':1,
                
 def score(word):
 
-    characters_count = Counter(list(word.lower()))
+    char_count = Counter(word.lower())
 
-    word_score = 0
-
-    for char in characters_count.keys():
-        word_score += characters_count[char] * char_scores[char]
-
-    return word_score
+    return sum(item[1] * char_scores[item[0]] for item in char_count.items())
